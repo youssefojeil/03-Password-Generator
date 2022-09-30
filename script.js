@@ -23,20 +23,23 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
-missing from specialCharacters: "\"
-
 */
 
 // Array with special characters
 var specialCharacters = ['!','"','#', '$', '%', '&', "'", '(', ')', 
 '*', '+', ',', '-', '.', '/', ':', ';', '<', '=',
-'>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~'];
+'>', '?', '@', "\\", '[', ']', '^', '_', '`', '{', '|', '}', '~'];
+
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 var lowercaseAlphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var uppercaseAlphabet = lowercaseAlphabet.map(element =>{
   return element.toUpperCase();
 });
 
+console.log(specialCharacters);
+console.log(numbers);
+console.log(lowercaseAlphabet);
 console.log(uppercaseAlphabet);
 
 
@@ -57,6 +60,31 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+function generatePassword(){
+
+  var passwordLength = window.prompt("How many characters do you want your password to be?");
+  var isSpecialCharacters = window.confirm("Do you want to include special characters?");
+  var isNumeric = window.confirm("Do you want to include numeric characters?");
+  var isLowerCase = window.confirm("Do you want to include lowercase characters?");
+  var isUpperCase = window.confirm("Do you want to include uppercase characters?");
+
+
+
+  console.log(passwordLength);
+  console.log(isSpecialCharacters);
+  console.log(isNumeric);
+  console.log(isLowerCase);
+  console.log(isUpperCase);
+
+  // condition if all 4 were selected
+  if(isSpecialCharacters && isNumeric && isLowerCase && isUpperCase){
+
+  }
+}
+
+// Event listener for button
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
