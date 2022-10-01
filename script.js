@@ -43,12 +43,6 @@ console.log(lowercaseAlphabet);
 console.log(uppercaseAlphabet);
 
 
-// Gets Random Special Character
-var specialCharacter = specialCharacters[Math.floor(Math.random()*specialCharacters.length)];
-
-console.log(specialCharacter);
-
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -69,7 +63,7 @@ function generatePassword(){
   var isLowerCase = window.confirm("Do you want to include lowercase characters?");
   var isUpperCase = window.confirm("Do you want to include uppercase characters?");
 
-
+  var password = [];
 
   console.log(passwordLength);
   console.log(isSpecialCharacters);
@@ -77,9 +71,38 @@ function generatePassword(){
   console.log(isLowerCase);
   console.log(isUpperCase);
 
+  // random number 
+  console.log(specialCharacterIndex);
+  console.log(numericIndex);
+  console.log(lowercaseIndex);
+  console.log(uppercaseIndex);
   // condition if all 4 were selected
   if(isSpecialCharacters && isNumeric && isLowerCase && isUpperCase){
 
+    
+    var specialCharacterIndex = Math.floor(Math.random()*specialCharacters.length);
+    var numericIndex = Math.floor(Math.random()*numbers.length);
+    var lowercaseIndex = Math.floor(Math.random()*lowercaseAlphabet.length);
+    var uppercaseIndex = Math.floor(Math.random()*uppercaseAlphabet.length);
+
+    for(var i = 0; i < passwordLength; i++){
+      
+      password.push(specialCharacters[specialCharacterIndex]);
+      console.log(password);
+      password.push(numbers[numericIndex]);
+      console.log(password);
+      password.push(lowercaseAlphabet[lowercaseIndex]);
+      console.log(password);
+      password.push(uppercaseAlphabet[uppercaseIndex]);
+      console.log(password);
+
+      specialCharacterIndex = Math.floor(Math.random()*specialCharacters.length);
+      numericIndex = Math.floor(Math.random()*numbers.length);
+      lowercaseIndex = Math.floor(Math.random()*lowercaseAlphabet.length);
+      uppercaseIndex = Math.floor(Math.random()*uppercaseAlphabet.length);
+
+    }
+    console.log(password);
   }
 }
 
