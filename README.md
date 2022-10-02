@@ -36,4 +36,4 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Link
 
-Try me out!: [Youssef Ojeil Portfolio](https://youssefojeil.github.io/02-Portfolio/)
+Try me out!: [Random Password Generator](https://youssefojeil.github.io/03-Password-Generator/)
