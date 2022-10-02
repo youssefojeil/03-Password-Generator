@@ -83,7 +83,7 @@ function generatePassword(){
 
     
     var passwordCharacters = [];
-    var password;
+    var password = [];
   
 
     console.log(passwordLength);
@@ -124,47 +124,19 @@ function generatePassword(){
       console.log(passwordCharacters.length)
       console.log(typeof(passwordCharacters));
     }
-/*
+
     // loop through the number of characters chosen by the user
     for (var i = 0; i < passwordLength; i ++){
       // get random number to use as index for array
-      var passwordIndex = Math.floor(Math.random()*passwordCharacters);
-      password = passwordCharacters[passwordIndex];
+      var passwordIndex = Math.floor(Math.random()*passwordCharacters.length);
+      console.log(passwordIndex);
+      console.log(passwordCharacters[passwordIndex]);
+      password = password + passwordCharacters[passwordIndex];
+      //password = password.push(passwordCharacters[passwordIndex]);
       console.log(password);
     }
     
-    console.log(typeof(password));
     console.log("Final Random password is: " + password);
-    */
-/*  
-    // condition if all 4 were selected
-    if(isSpecialCharacters && isNumeric && isLowerCase && isUpperCase){
-  
-      
-      var specialCharacterIndex = Math.floor(Math.random()*specialCharacters.length);
-      var numericIndex = Math.floor(Math.random()*numbers.length);
-      var lowercaseIndex = Math.floor(Math.random()*lowercaseAlphabet.length);
-      var uppercaseIndex = Math.floor(Math.random()*uppercaseAlphabet.length);
-  
-      for(var i = 0; i < passwordLength; i++){
-        
-        password.push(specialCharacters[specialCharacterIndex]);
-        console.log(password);
-        password.push(numbers[numericIndex]);
-        console.log(password);
-        password.push(lowercaseAlphabet[lowercaseIndex]);
-        console.log(password);
-        password.push(uppercaseAlphabet[uppercaseIndex]);
-        console.log(password);
-  
-        specialCharacterIndex = Math.floor(Math.random()*specialCharacters.length);
-        numericIndex = Math.floor(Math.random()*numbers.length);
-        lowercaseIndex = Math.floor(Math.random()*lowercaseAlphabet.length);
-        uppercaseIndex = Math.floor(Math.random()*uppercaseAlphabet.length);
-  
-      }
-        console.log(password);
-    }*/
   }
 
 }
