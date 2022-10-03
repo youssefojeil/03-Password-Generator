@@ -42,58 +42,57 @@ function generatePassword(){
     return;
   }
   
-  else{
-    // Ask for user input
-    var isSpecialCharacters = window.confirm("Do you want to include special characters?");
-    var isNumeric = window.confirm("Do you want to include numeric characters?");
-    var isLowerCase = window.confirm("Do you want to include lowercase characters?");
-    var isUpperCase = window.confirm("Do you want to include uppercase characters?");
+  // Ask for user input
+  var isSpecialCharacters = window.confirm("Do you want to include special characters?");
+  var isNumeric = window.confirm("Do you want to include numeric characters?");
+  var isLowerCase = window.confirm("Do you want to include lowercase characters?");
+  var isUpperCase = window.confirm("Do you want to include uppercase characters?");
 
-    
-    var passwordCharacters = [];
-    var userpassword = [];
-    
-    console.log(isSpecialCharacters);
-    console.log(isNumeric);
-    console.log(isLowerCase);
-    console.log(isUpperCase);
+  
+  var passwordCharacters = [];
+  var userpassword = [];
+  
+  console.log(isSpecialCharacters);
+  console.log(isNumeric);
+  console.log(isLowerCase);
+  console.log(isUpperCase);
 
-    // If nothing was selected
-    if(!isSpecialCharacters && !isNumeric && !isLowerCase && !isUpperCase){
-      window.alert("Unable to generate password. User must select at least one input.");
-      return;
-    }
-
-    // if Special Characters Selected
-    if(isSpecialCharacters){
-      passwordCharacters = passwordCharacters.concat(specialCharacters);
-    }
-    
-    // if Numbers Selected
-    if(isNumeric){
-      passwordCharacters = passwordCharacters.concat(numbers);
-    }
-    
-    // if Lowercase Selected
-    if(isLowerCase){
-      passwordCharacters = passwordCharacters.concat(lowercaseAlphabet);
-    }    
-    
-    // if Uppercase Selected
-    if(isUpperCase){
-      passwordCharacters = passwordCharacters.concat(uppercaseAlphabet);
-    }
-    
-    // loop through the number of characters chosen by the user
-    for (var i = 0; i < passwordLength; i ++){
-      // get random number to use as index for array
-      var passwordIndex = Math.floor(Math.random()*passwordCharacters.length);
-      // add characters to password
-      userpassword = userpassword + passwordCharacters[passwordIndex];
-    }
-    // returns the generated password from function
-    return userpassword; 
+  // If nothing was selected
+  if(!isSpecialCharacters && !isNumeric && !isLowerCase && !isUpperCase){
+    window.alert("Unable to generate password. User must select at least one input.");
+    return;
   }
+
+  // if Special Characters Selected
+  if(isSpecialCharacters){
+    passwordCharacters = passwordCharacters.concat(specialCharacters);
+  }
+  
+  // if Numbers Selected
+  if(isNumeric){
+    passwordCharacters = passwordCharacters.concat(numbers);
+  }
+  
+  // if Lowercase Selected
+  if(isLowerCase){
+    passwordCharacters = passwordCharacters.concat(lowercaseAlphabet);
+  }    
+  
+  // if Uppercase Selected
+  if(isUpperCase){
+    passwordCharacters = passwordCharacters.concat(uppercaseAlphabet);
+  }
+  
+  // loop through the number of characters chosen by the user
+  for (var i = 0; i < passwordLength; i ++){
+    // get random number to use as index for array
+    var passwordIndex = Math.floor(Math.random()*passwordCharacters.length);
+    // add characters to password
+    userpassword = userpassword + passwordCharacters[passwordIndex];
+  }
+  // returns the generated password from function
+  return userpassword; 
+
 }
 
 
