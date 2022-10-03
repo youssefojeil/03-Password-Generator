@@ -23,6 +23,10 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
+  if (password == undefined){
+    return;
+  }
+  
   // text & alert output for generated password
   passwordText.value = password;
   window.alert("Your new random password has been generated: " + password);
@@ -35,7 +39,7 @@ function generatePassword(){
   // check for password length
   if(passwordLength < 8 || passwordLength > 128){
     window.alert("The number you chose is not valid. Please choose a number between 8 & 128 characters.");
-    generatePassword();
+    return;
   }
   
   else{
@@ -47,18 +51,29 @@ function generatePassword(){
 
     
     var passwordCharacters = [];
-    var password = [];
+    var userpassword = [];
     
+    console.log(isSpecialCharacters);
+    console.log(isNumeric);
+    console.log(isLowerCase);
+    console.log(isUpperCase);
+
+    // If nothing was selected
+    if(!isSpecialCharacters && !isNumeric && !isLowerCase && !isUpperCase){
+      window.alert("Unable to generate password. User must select at least one input.");
+      return;
+    }
+
     // if Special Characters Selected
     if(isSpecialCharacters){
       passwordCharacters = passwordCharacters.concat(specialCharacters);
     }
-
+    
     // if Numbers Selected
     if(isNumeric){
       passwordCharacters = passwordCharacters.concat(numbers);
     }
-
+    
     // if Lowercase Selected
     if(isLowerCase){
       passwordCharacters = passwordCharacters.concat(lowercaseAlphabet);
@@ -68,18 +83,17 @@ function generatePassword(){
     if(isUpperCase){
       passwordCharacters = passwordCharacters.concat(uppercaseAlphabet);
     }
-
+    
     // loop through the number of characters chosen by the user
     for (var i = 0; i < passwordLength; i ++){
       // get random number to use as index for array
       var passwordIndex = Math.floor(Math.random()*passwordCharacters.length);
       // add characters to password
-      password = password + passwordCharacters[passwordIndex];
+      userpassword = userpassword + passwordCharacters[passwordIndex];
     }
+    // returns the generated password from function
+    return userpassword; 
   }
-  // returns the generated password from function
-  return password;  
-
 }
 
 
